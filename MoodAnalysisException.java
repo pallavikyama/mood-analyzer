@@ -10,13 +10,13 @@ public class MoodAnalysisException extends Exception {
 	public enum MoodAnalysisErrors {
 		NULL(null), EMPTY("");
 		
-		public String value;
-
+		String value;
+		
 		MoodAnalysisErrors(String value) {
 			this.value = value;
 		}
 	}
-
+	MoodAnalysisErrors obj;
 	public MoodAnalysisException(String check) {
 		super(check);
 	}

@@ -29,12 +29,12 @@ public class MoodAnalyzer {
 	protected static String invalidMood() throws MoodAnalysisException {
 		Pattern code = Pattern.compile(".*[Ss][Aa][Dd].*");
 		Matcher check = code.matcher(message);
-		if (check.matches())
-			return "SAD";
-		else if(message==null)
+		if(message.equals(null))
 			throw new MoodAnalysisException("User entered null message.");
-		else if(message=="")
+		else if(message.equals(""))
 			throw new MoodAnalysisException("User entered empty message.");
+		else if (check.matches())
+			return "SAD";
 		else
 			return "HAPPY";
 	}
