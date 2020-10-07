@@ -8,9 +8,10 @@ public class MoodAnalyzerTest {
 
 	@Test
 	public void moodTest() {
-		// SAD TEST-CASE
-		String expectedResult = "SAD";
-		String actualResult = MoodAnalyzer.analyseMood("I am in sad mood.");
+		// HAPPY TEST-CASE
+		String expectedResult = "HAPPY";
+		String actualResult = MoodAnalyzer.analyseMood("I am in any mood.");
 		assertEquals(expectedResult, actualResult);
 	}
+	
 }
