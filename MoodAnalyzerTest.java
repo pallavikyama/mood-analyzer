@@ -8,9 +8,12 @@ public class MoodAnalyzerTest {
 
 	@Test
 	public void moodTest() {
-		// NULL SCENARIO HANDLING 
-		MoodAnalyzer.message=null;
-		assertEquals(MoodAnalyzer.analyseMood(), "HAPPY");
+		// NULL SCENARIO HANDLING
+		try {
+			MoodAnalyzer.message = null;
+			MoodAnalyzer.invalidMood();
+		} catch (MoodAnalysisException e) {
+			assertEquals(MoodAnalysisException.MoodAnalysisErrors.NULL.value, e.obj);
+		}
 	}
-
 }
