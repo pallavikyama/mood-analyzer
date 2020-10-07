@@ -14,21 +14,31 @@ public class MoodAnalyzer {
 	}
 
 	MoodAnalyzer(String message) {
-		System.out.println(analyseMood());
+		analyseMood();
 	}
 
 	// UC1
-	protected static String analyseMood() throws NullPointerException {
+	protected static void analyseMood() {
+		try {
+			System.out.println(invalidMood());
+		} catch (MoodAnalysisException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected static String invalidMood() throws MoodAnalysisException {
 		Pattern code = Pattern.compile(".*[Ss][Aa][Dd].*");
 		Matcher check = code.matcher(message);
 		if (check.matches())
 			return "SAD";
-		else if (message!=null)
-			return "HAPPY";
+		else if(message==null)
+			throw new MoodAnalysisException("User entered null message.");
+		else if(message=="")
+			throw new MoodAnalysisException("User entered empty message.");
 		else
-			throw new NullPointerException();
+			return "HAPPY";
 	}
-
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to MOOD ANALYZER.");
 		System.out.println("Enter mood related message:");
