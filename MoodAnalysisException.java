@@ -16,8 +16,11 @@ public class MoodAnalysisException extends Exception {
 			this.value = value;
 		}
 	}
+	
 	MoodAnalysisErrors obj;
-	public MoodAnalysisException(String check) {
+	
+	public MoodAnalysisException(String check,MoodAnalysisErrors obj) {
 		super(check);
+		this.obj=obj;
 	}
 }

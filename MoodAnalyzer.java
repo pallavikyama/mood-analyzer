@@ -30,9 +30,9 @@ public class MoodAnalyzer {
 		Pattern code = Pattern.compile(".*[Ss][Aa][Dd].*");
 		Matcher check = code.matcher(message);
 		if(message.equals(null))
-			throw new MoodAnalysisException("User entered null message.");
+			throw new MoodAnalysisException("User entered null message.",MoodAnalysisException.MoodAnalysisErrors.NULL);
 		else if(message.equals(""))
-			throw new MoodAnalysisException("User entered empty message.");
+			throw new MoodAnalysisException("User entered empty message.",MoodAnalysisException.MoodAnalysisErrors.EMPTY);
 		else if (check.matches())
 			return "SAD";
 		else
