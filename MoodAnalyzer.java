@@ -6,12 +6,21 @@ import java.util.regex.Pattern;
 
 public class MoodAnalyzer {
 
+	protected static String message;
 	static Scanner sc = new Scanner(System.in);
 
+	MoodAnalyzer() {
+		this(message);
+	}
+
+	MoodAnalyzer(String message) {
+		System.out.println(analyseMood());
+	}
+
 	// UC1
-	public static String analyseMood(String text) {
-		Pattern code = Pattern.compile(".*[Ss][Aa][Dd].*");
-		Matcher check = code.matcher(text);
+	protected static String analyseMood() {
+		Pattern code = Pattern.compile(".* [Ss][Aa][Dd] .*");
+		Matcher check = code.matcher(message);
 		if (check.matches())
 			return "SAD";
 		else
@@ -21,8 +30,7 @@ public class MoodAnalyzer {
 	public static void main(String[] args) {
 		System.out.println("Welcome to MOOD ANALYZER.");
 		System.out.println("Enter mood related message:");
-		String message = sc.nextLine();
-		System.out.println(MoodAnalyzer.analyseMood(message));
-		sc.close();
+		message = sc.nextLine();
+		new MoodAnalyzer();
 	}
 }
