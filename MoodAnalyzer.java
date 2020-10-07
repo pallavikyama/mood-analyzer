@@ -14,17 +14,17 @@ public class MoodAnalyzer {
 	}
 
 	MoodAnalyzer(String message) {
-		analyseMood();
+		System.out.println(analyseMood());
 	}
 
 	// UC1
-	protected static void analyseMood() throws NullPointerException {
+	protected static String analyseMood() throws NullPointerException {
 		Pattern code = Pattern.compile(".*[Ss][Aa][Dd].*");
 		Matcher check = code.matcher(message);
 		if (check.matches())
-			System.out.println("SAD");
+			return "SAD";
 		else if (message!=null)
-			System.out.println("HAPPY");
+			return "HAPPY";
 		else
 			throw new NullPointerException();
 	}
